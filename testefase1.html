@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>pagina2</title>
+    <style>
+        /* Estilos adicionais para garantir que o texto preencha o espaço da borda */
+        .fase1 {
+            border: 2px solid #000; /* Exemplo de borda */
+            padding: 10px; /* Espaçamento interno para não tocar na borda */
+            margin: 10px; /* Espaçamento externo */
+            overflow: hidden; /* Esconde o texto que excede o elemento */
+        }
+        .text1 {
+            display: inline-block; /* Permite que o texto seja tratado como um bloco */
+            overflow: hidden; /* Esconde o texto que excede o elemento */
+            border-right: 2px solid; /* Simula o cursor de digitação */
+        }
+    </style>
+</head>
+<body>
+    <div class="fase1">
+        <p id="textoDigitado" class="text1"></p>
+    </div>
+    
+    <button class="botao1"><a href="/Tela Inicio.html">Voltar</a></button>
+
+    <script>
+        // Texto que será "digitado"
+        var texto = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero natus harum qui quisquam fugiat sint iure esse, incidunt autem, dicta at repellendus ad eos corrupti possimus doloremque iusto earum iste. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore voluptates placeat tempora provident reiciendis quis, fugiat corporis illum at aliquid voluptas ea beatae quaerat consequuntur laboriosam deleniti quae molestias porro.';
+        var indice = 0;
+        var velocidade = 100; // Velocidade da digitação em milissegundos
+
+        // Função para adicionar uma letra ao texto
+        function digitarTexto() {
+            if (indice < texto.length) {
+                document.getElementById('textoDigitado').innerHTML += texto.charAt(indice);
+                indice++;
+                setTimeout(digitarTexto, velocidade);
+            }
+        }
+
+        // Inicia a digitação quando a página é carregada
+        window.onload = function() {
+            digitarTexto();
+        };
+    </script>
+</body>
+</html>

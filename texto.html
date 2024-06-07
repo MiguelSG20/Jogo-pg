@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Efeito de Digitação</title>
+<style>
+  .texto-digitando {
+    font-family: 'Courier New', monospace;
+    white-space: pre; /* Mantém os espaços em branco */
+    overflow: hidden; /* Esconde o texto que ainda não foi "digitado" */
+    border-right: .15em solid orange; /* Simula o cursor de digitação */
+    animation: digitando 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  }
+
+  /* Animação do efeito de digitação */
+  @keyframes digitando {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  /* Animação do cursor piscando */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+</style>
+</head>
+<body>
+
+<div class="texto-digitando">
+  Este é um exemplo de texto sendo "digitado"...
+</div>
+
+</body>
+</html>

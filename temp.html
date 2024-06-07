@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Temporizador de Jogo</title>
+<style>
+  #temporizador {
+    font-size: 24px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div id="temporizador">00:00:00</div>
+
+<script>
+// Inicializa as variáveis de tempo
+let horas = 0;
+let minutos = 0;
+let segundos = 0;
+
+// Formata o tempo para exibir dois dígitos
+function formatarTempo(unidade) {
+  return unidade < 10 ? '0' + unidade : unidade;
+}
+
+// Atualiza o temporizador a cada segundo
+function atualizarTemporizador() {
+  segundos++;
+  if (segundos >= 60) {
+    minutos++;
+    segundos = 0;
+  }
+  if (minutos >= 60) {
+    horas++;
+    minutos = 0;
+  }
+
+  // Exibe o tempo formatado
+  document.getElementById('temporizador').textContent =
+    formatarTempo(horas) + ':' +
+    formatarTempo(minutos) + ':' +
+    formatarTempo(segundos);
+}
+
+// Inicia o temporizador
+setInterval(atualizarTemporizador, 1000);
+</script>
+
+</body>
+</html>
